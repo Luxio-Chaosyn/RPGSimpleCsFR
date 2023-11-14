@@ -13,14 +13,33 @@ namespace RPGSimpleCsFR
         //trouve une position valide (un espace) et place le joueur dessus (set px et py a l'endroit)
         public void GetStartPosition()
         {
-
+            do
+            {
+                for (int i = 0; i < 50; i++)
+                {
+                    for (int j = 0; j < 50; j++)
+                    {
+                        if (maze.observe(i, j) = ' ')
+                        {
+                            px = i;
+                            py = j;
+                            break;
+                        }
+                    }
+                }
+            } while (true);
         }
-
         //check toute les positions (en haut, en bas, a droite et a gauche) et check si on peut se deplacer dessus (c'est a dire, si c'est un mur ou pas)
         public bool[] GetMoveOptions()
         {
-            bool[] MoveOptions = [false, false, false, false];
-
+            bool[] MoveOptions = { false, false, false, false };
+            if (px>0)
+            {
+                if (maze.observe(px - 1, py) = ' ')
+                {
+                    MoveOptions[3] = true;
+                }
+            }
 
             return (MoveOptions);
         }

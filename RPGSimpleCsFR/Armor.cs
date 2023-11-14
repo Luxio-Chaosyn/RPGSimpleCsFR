@@ -9,7 +9,7 @@ namespace RPGSimpleCsFR
     internal class Armor : Equipement
     {
 
-        int defensePoint;
+        private int defensePoint;
 
         public Armor() //Constructeur qui génère une valeur aléatoire de points de défense
         {

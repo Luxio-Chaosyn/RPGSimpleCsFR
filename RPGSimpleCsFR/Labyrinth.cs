@@ -8,7 +8,7 @@ namespace RPGSimpleCsFR
 {
     internal class Labyrinth
     {
-        char[,] maze;
+        private char[,] maze;
 
         // créer le labyrinthe, commence par faire une grille pleine de # puis au harzard enlève 3/5 en les remplaçant par des espace
         public void Generate(int x, int y)

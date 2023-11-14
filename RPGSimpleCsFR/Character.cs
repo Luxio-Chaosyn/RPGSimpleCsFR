@@ -32,7 +32,7 @@ namespace RPGSimpleCsFR
 
         // LevelUp:
         // fait augmenter les stats du Character, remet ses pv au max
-        public abstract void LevelUp(Character c);
+        public abstract void LevelUp();
 
         public abstract bool isDead(Character c);
 

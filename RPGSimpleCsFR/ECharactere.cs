@@ -12,7 +12,7 @@ namespace RPGSimpleCsFR
 
         const int ATK = 20;
         const int DEF = 100;
-        public int lvl { get; set; }
+        public int lvl { get; set;}
         
         
 
@@ -26,7 +26,7 @@ namespace RPGSimpleCsFR
         // Prend un autre objet Character en argument et revois un booléen disant si l'attaque a réussi ou échouer
         public override bool Attack()
         {
-            int luck = Rng.Roll(1, 2)
+            int luck = Rng.Roll(1, 2);
             
                 if (luck == 1)
             {
@@ -59,12 +59,12 @@ namespace RPGSimpleCsFR
         public override void LevelUp()
         {
                 lvl += 1;
-                def = DEF + lvl * 0.30;
-                atk = ATK + lvl * 0.30;
+                def = DEF + lvl;
+                atk = ATK + lvl;
             
         }
 
-        public bool isDead()
+        public override bool isDead()
         {
             if (def <= 0)
             {

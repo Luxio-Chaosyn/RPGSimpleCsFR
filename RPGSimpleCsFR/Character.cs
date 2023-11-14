@@ -13,7 +13,7 @@ namespace RPGSimpleCsFR
 
         public int atk;
         public int def;
-        string nom;
+        public string nom;
 
         //  Méthodes
 
@@ -34,7 +34,7 @@ namespace RPGSimpleCsFR
         // fait augmenter les stats du Character, remet ses pv au max
         public abstract void LevelUp();
 
-        public abstract bool isDead(Character c);
+        public abstract bool isDead();
 
 
 

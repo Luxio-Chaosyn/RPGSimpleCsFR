@@ -39,8 +39,8 @@ namespace RPGSimpleCsFR
 
         public int StartGame()
         {
+            maze.Generate(50, 50);
             return (0);
         }
     }
 }
-Console.WriteLine("Hello, World!");

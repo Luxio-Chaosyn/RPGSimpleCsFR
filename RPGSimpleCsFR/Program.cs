@@ -19,7 +19,7 @@ namespace RPGSimpleCsFR
                 {
                     for (int j = 0; j < 50; j++)
                     {
-                        if (maze.observe(i, j) = ' ')
+                        if (maze.observe(i, j) == ' ')
                         {
                             px = i;
                             py = j;
@@ -33,21 +33,33 @@ namespace RPGSimpleCsFR
         public bool[] GetMoveOptions()
         {
             bool[] MoveOptions = { false, false, false, false };
-            if (px>0)
+            if (px>0 && maze.observe(px - 1, py) == ' ')
             {
-                if (maze.observe(px - 1, py) = ' ')
-                {
-                    MoveOptions[3] = true;
-                }
+                MoveOptions[3] = true;
             }
-
+            if (px<50 && maze.observe(px + 1, py) == ' ')
+            {
+                MoveOptions[2] = true;
+            }
+            if (py>0 && maze.observe(py - 1, px) == ' ')
+            {
+                MoveOptions[1] = true;
+            }
+            if (py<50 && maze.observe(py + 1, px) == ' ')
+            {
+                MoveOptions[0] = true;
+            }
             return (MoveOptions);
         }
 
-        //bouge sur la case demandé
+        //bouge sur la case demandée
         public void Move(int x, int y)
         {
-
+            if (maze.observe(x, y)==' ')
+            {
+                px = x;
+                py = y;
+            }
         }
 
         //boucle principale du jeu

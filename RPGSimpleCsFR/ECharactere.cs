@@ -12,25 +12,22 @@ namespace RPGSimpleCsFR
 
         const int ATK = 20;
         const int DEF = 100;
-     
-        private int _lvl;
-        public string name { get; set; }
-        public string lvl { get; set; }
+        public int lvl { get; set; }
         
         
 
-        public ECharactere(string nom)
+        public ECharactere(string name)
         {
             atk = 20;
             def = 100;
-            name= nom;
+            nom= name;
         }
         // Attack:
         // Prend un autre objet Character en argument et revois un booléen disant si l'attaque a réussi ou échouer
         public override bool Attack()
         {
-
-            int luck = Roll(1, 2);
+            int luck = Rng.Roll(1, 2)
+            
                 if (luck == 1)
             {
                 return false;
@@ -45,26 +42,26 @@ namespace RPGSimpleCsFR
         public override void Damage(Character c)
         {
             bool r = Attack();
-            if(r)
+            if (r)
             {
                 Console.WriteLine("Attaque réussi");
                 c.def = c.def - atk;
                 Console.WriteLine("Vous avez infligé " + atk + " degats ");
+                return;
             }
+
             Console.WriteLine("Attaque échoué");
 
         }
 
         // LevelUp:
         // fait augmenter les stats du Character, remet ses pv au max
-        public override void LevelUp(Character c)
+        public override void LevelUp()
         {
-            if (c.isDead)
-            {
                 lvl += 1;
                 def = DEF + lvl * 0.30;
                 atk = ATK + lvl * 0.30;
-            }
+            
         }
 
         public bool isDead()
@@ -74,11 +71,7 @@ namespace RPGSimpleCsFR
                 Console.WriteLine(nom + " est mort ");
                 return true;
             }
-        }
-
-        public static int Roll(int min, int max)
-        {
-            return rand.Next(min, max);
+            return false;
         }
 
     }

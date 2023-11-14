@@ -9,10 +9,10 @@ namespace RPGSimpleCsFR
     public abstract class Character
     {
         // Propriétés
+        
 
         public int atk;
         public int def;
-        bool isAlive;
         string nom;
 
         //  Méthodes
@@ -35,8 +35,11 @@ namespace RPGSimpleCsFR
 
         // LevelUp:
         // fait augmenter les stats du Character, remet ses pv au max
-        public abstract void LevelUp();
+        public abstract void LevelUp(Character c);
 
-       
+        public abstract bool isDead(Character c);
+
+
+
     }
 }

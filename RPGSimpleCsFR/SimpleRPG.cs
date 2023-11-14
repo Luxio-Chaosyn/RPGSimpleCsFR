@@ -12,7 +12,7 @@ namespace RPGSimpleCsFR
         private int px = 0;
         private int py = 0;
 
-        private ECharactere player;
+        private Character player;
         private Labyrinth maze;
 
         //trouve une position valide (un espace) et place le joueur dessus (set px et py a l'endroit)
@@ -64,6 +64,8 @@ namespace RPGSimpleCsFR
         {
             ECharactere monster = new ECharactere("Goblin");
 
+            monster.MonsterRdmStat();
+            Console.WriteLine("Un Monstre vous attaque !");
             while (!player.isDead() && !monster.isDead())
             {
                 player.Damage(monster);
@@ -77,10 +79,44 @@ namespace RPGSimpleCsFR
         //bouge sur la case demandée
         private void Move(int x, int y)
         {
-            if (maze.observe(x, y) == ' ')
+            if (maze.observe(x, y) != '#')
             {
                 px = x;
                 py = y;
+                if (maze.observe(x, y) == 'T')
+                {
+                    Console.WriteLine("Super, vous venez de tomber sur un trésor ! ");
+                    switch (Rng.Roll(1, 2))
+                    {
+                        case 1:
+                            {
+                                Armor arm = new Armor();
+                                Console.WriteLine("Vous gagnez une armure qui vous procure une défense supplémentaire de " + arm.DefensePoint + "point(s)");
+                                arm.PickUp(player);
+                                break;
+                            }
+                        case 2:
+                            {
+                                Weapon gun = new Weapon();
+                                Console.WriteLine("Vous gagnez une nouvelle arme qui augmente votre attaque de " + gun.DamagePoint + " point(s)");
+                                gun.PickUp(player);
+                                break;
+                            }
+                        default:
+                            {
+                                Armor arm = new Armor();
+                                Console.WriteLine("Vous gagnez une armure qui vous procure une défense supplémentaire de " + arm.DefensePoint + "point(s)");
+                                arm.PickUp(player);
+                                break;
+                            }
+                    }
+                    maze.setPlace(x, y, ' ');
+                }
+                else if (maze.observe(x, y) == 'M')
+                {
+                    Fight();
+                    maze.setPlace(x, y, ' ');
+                }
             }
         }
 
@@ -92,7 +128,11 @@ namespace RPGSimpleCsFR
             {
                 cmd = Console.ReadLine();
                 if (cmd.Length > 1)
+                {
                     cmd = "";
+                    Console.WriteLine("Commande non reconnue, où voulez vous allez ?");
+                }
+                    
             }
             return (cmd);
         }
@@ -118,6 +158,7 @@ namespace RPGSimpleCsFR
             {
                 bool[] MoveOptions = GetMoveOptions();
 
+                Console.WriteLine("Nouveau tour (s'il y a aucune option vous êtes coincé)");
                 ShowPath(MoveOptions);
                 cmd = GetValidCmd();
                 if (MoveOptions[0] && cmd == "1")

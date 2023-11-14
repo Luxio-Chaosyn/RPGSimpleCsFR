@@ -8,10 +8,12 @@ namespace RPGSimpleCsFR
 {
     internal class Labyrinth
     {
+        char[,] maze;
+
         // créer le labyrinthe, commence par faire une grille pleine de # puis au harzard enlève 3/5 en les remplaçant par des espace
         public void Generate(int x, int y)
         {
-            char[,] maze = new char[x, y];
+            maze= new char[x, y];
             
             for (int i = 0; i < maze.GetLength(0); i++)
             {
@@ -23,26 +25,79 @@ namespace RPGSimpleCsFR
 
             }
 
+            int nbvide =0;
+
+            do
+            {
+                int rand1 = Rng.Roll(0, x);
+                int rand2 = Rng.Roll(0, y);
+
+
+                if (maze[rand1, rand2])= '#')
+                {
+                    maze[rand1, rand2] = ' ';
+                    nbvide++;
+
+                }
+
+            }
+            while (nbvide < (x * y * 3 / 5));
+            
+             
+
 
         }
 
         // au hazard rajoute nb 'M' dans le labyrinthe
         public void Populate(int nb)
         {
+            do
+            {
 
+                int rand1 = Rng.Roll(0, x);
+                int rand2 = Rng.Roll(0, y);
+
+
+                if (maze[rand1, rand2])= ' ')
+                {
+                    maze[rand1, rand2] = 'M';
+                    nb--;
+
+                }
+
+            }
+            while (nb > 0);
 
         }
+
 
         // au hazard rajoute nb 'T' dans le labyrinthe
         public  void Furbish(int nb)
         {
+            do
+            {
+
+                int rand1 = Rng.Roll(0, x);
+                int rand2 = Rng.Roll(0, y);
+
+
+                if (maze[rand1, rand2])= ' ')
+                {
+                    maze[rand1, rand2] = 'T';
+                    nb--;
+
+                }
+
+            }
+            while (nb > 0);
+
 
 
         }
 
         //renvoie la nature de la case demandé
-        public void observe(int x, int y) { 
-        
+        public char observe(int x, int y) {
+            return maze[x, y];        
         }
 
     }

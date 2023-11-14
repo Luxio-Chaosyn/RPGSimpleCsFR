@@ -42,10 +42,10 @@ namespace RPGSimpleCsFR
                 }
 
             }
-            while (nbvide < (x * y * 3 / 5));
+            while (nbvide < (x * y * 4 / 5));
 
-            this.Populate(10);
-            this.Furbish(10);
+            this.Populate(nbvide/5);
+            this.Furbish(nbvide/5);
 
 
 

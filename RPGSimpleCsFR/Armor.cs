@@ -13,9 +13,7 @@ namespace RPGSimpleCsFR
 
         public Armor() //Constructeur qui génère une valeur aléatoire de points de défense
         {
-            Random rnd = new Random();
-            this.defensePoint = rnd.Next(1, 5);
-
+            this.defensePoint = Rng.Roll(1, 5);
         }
 
         public int DefensePoint()

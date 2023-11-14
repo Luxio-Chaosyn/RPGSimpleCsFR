@@ -10,10 +10,9 @@ namespace RPGSimpleCsFR
     {
         int damagePoint;
 
-        public Weapon()
+        public Weapon()// Génére aléatoirement une valeur aléatoire de points d'attaque
         {
-            Random rnd = new Random();
-            this.damagePoint = rnd.Next(1, 5);
+            this.damagePoint = Rng.Roll(1, 5);
         }
 
         public int DamagePoint()

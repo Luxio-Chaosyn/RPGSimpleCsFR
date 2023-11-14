@@ -8,7 +8,7 @@ namespace RPGSimpleCsFR
 {
     internal class Weapon : Equipement
     {
-        int damagePoint;
+        private int damagePoint;
 
         public Weapon()// Génére aléatoirement une valeur aléatoire de points d'attaque
         {

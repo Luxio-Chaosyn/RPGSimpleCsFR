@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 
 namespace RPGSimpleCsFR
 {
-    internal abstract class Character
+    public abstract class Character
     {
         // Propriétés
 
-        int atk;
-        int def;
+        public int atk;
+        public int def;
+        bool isAlive;
+        string nom;
 
         //  Méthodes
 
@@ -21,11 +23,11 @@ namespace RPGSimpleCsFR
 
         // Attack:
         // Prend un autre objet Character en argument et revois un booléen disant si l'attaque a réussi ou échouer
-        public abstract bool Attack(Character c);
+        public abstract bool Attack();
 
         // Defend:
         // Sera appelé dans la méthode attack, retourne le score de défense de la cible
-        public abstract int Defend();
+        public abstract int Defend(Character c);
 
         // Damages:
         // Sera appelé apres l'attaque si elle a réussi et infligera des dégats à la cible
@@ -33,6 +35,8 @@ namespace RPGSimpleCsFR
 
         // LevelUp:
         // fait augmenter les stats du Character, remet ses pv au max
-        public abstract void LevelUp() { }
+        public abstract void LevelUp();
+
+       
     }
 }

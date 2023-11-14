@@ -14,7 +14,8 @@ namespace RPGSimpleCsFR
         public void Generate(int x, int y)
         {
             maze= new char[x, y];
-            
+            int nbvide = 0;
+
             for (int i = 0; i < maze.GetLength(0); i++)
             {
                 for (int j = 0; j < maze.GetLength(1); j++)
@@ -25,7 +26,7 @@ namespace RPGSimpleCsFR
 
             }
 
-            int nbvide =0;
+            
 
             do
             {
@@ -42,14 +43,17 @@ namespace RPGSimpleCsFR
 
             }
             while (nbvide < (x * y * 3 / 5));
-            
-             
+
+            this.Populate(10);
+            this.Furbish(10);
+
+
 
 
         }
 
         // au hazard rajoute nb 'M' dans le labyrinthe
-        public void Populate(int nb)
+        private void Populate(int nb)
         {
             do
             {
@@ -58,7 +62,7 @@ namespace RPGSimpleCsFR
                 int rand2 = Rng.Roll(0, maze.GetLength(1));
 
 
-                if (maze[rand1, rand2]= ' ')
+                if (maze[rand1, rand2]== ' ')
                 {
                     maze[rand1, rand2] = 'M';
                     nb--;
@@ -72,7 +76,7 @@ namespace RPGSimpleCsFR
 
 
         // au hazard rajoute nb 'T' dans le labyrinthe
-        public  void Furbish(int nb)
+        private void Furbish(int nb)
         {
             do
             {
@@ -81,7 +85,7 @@ namespace RPGSimpleCsFR
                 int rand2 = Rng.Roll(0,maze.GetLength(1));
 
 
-                if (maze[rand1, rand2]= ' ')
+                if (maze[rand1, rand2]== ' ')
                 {
                     maze[rand1, rand2] = 'T';
                     nb--;

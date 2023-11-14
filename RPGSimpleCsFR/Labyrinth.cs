@@ -30,7 +30,7 @@ namespace RPGSimpleCsFR
            do
             {
               int rand1 = Rng.Roll(0,x);
-              int rand2 = Rng.Roll(0,y)
+                int rand2 = Rng.Roll(0, y);
 
 
               if (maze[rand1,rand2])='#')
@@ -55,7 +55,7 @@ namespace RPGSimpleCsFR
             {
                 
                 int rand1 = Rng.Roll(0, x);
-                int rand2 = Rng.Roll(0, y)
+                int rand2 = Rng.Roll(0, y);
 
 
               if (maze[rand1, rand2])= ' ')
@@ -78,10 +78,10 @@ namespace RPGSimpleCsFR
             {
 
                 int rand1 = Rng.Roll(0, x);
-                int rand2 = Rng.Roll(0, y)
+                int rand2 = Rng.Roll(0, y);
 
 
-              if (maze[rand1, rand2])= ' ')
+                if (maze[rand1, rand2])= ' ')
                 {
                     maze[rand1, rand2] = 'T';
                     nb--;
@@ -89,7 +89,7 @@ namespace RPGSimpleCsFR
                 }
 
             }
-            while (nb > 0)
+            while (nb > 0);
 
 
 

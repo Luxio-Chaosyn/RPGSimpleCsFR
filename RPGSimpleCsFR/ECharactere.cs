@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RPGSimpleCsFR
 {
-    public class ICharactere : Character
+    public class ECharactere : Character
     {
 
         const int ATK = 20;
@@ -19,7 +19,7 @@ namespace RPGSimpleCsFR
         
         
 
-        public ICharactere(string nom)
+        public ECharactere(string nom)
         {
             atk = 20;
             def = 100;
@@ -28,9 +28,9 @@ namespace RPGSimpleCsFR
         // Attack:
         // Prend un autre objet Character en argument et revois un booléen disant si l'attaque a réussi ou échouer
         public override bool Attack()
-        { 
-           
-          int luck = Roll(1,2)
+        {
+
+            int luck = Roll(1, 2);
                 if (luck == 1)
             {
                 return false;
@@ -38,12 +38,7 @@ namespace RPGSimpleCsFR
             return true;
         }
 
-        // Defend:
-        // Sera appelé dans la méthode attack, retourne le score de défense de la cible
-        public override int Defend(Character c)
-        {
-            return c.def;
-        }
+
 
         // Damages:
         // Sera appelé apres l'attaque si elle a réussi et infligera des dégats à la cible
@@ -52,10 +47,11 @@ namespace RPGSimpleCsFR
             bool r = Attack();
             if(r)
             {
-                Console.WriteLine("Attaque réussi")
+                Console.WriteLine("Attaque réussi");
                 c.def = c.def - atk;
+                Console.WriteLine("Vous avez infligé " + atk + " degats ");
             }
-            Console.WriteLine("Attaque échoué")
+            Console.WriteLine("Attaque échoué");
 
         }
 
@@ -66,8 +62,8 @@ namespace RPGSimpleCsFR
             if (c.isDead)
             {
                 lvl += 1;
-                def = DEF + lvl * 0.30
-                atk = ATK + lvl * 0.30
+                def = DEF + lvl * 0.30;
+                atk = ATK + lvl * 0.30;
             }
         }
 
@@ -75,6 +71,7 @@ namespace RPGSimpleCsFR
         {
             if (def <= 0)
             {
+                Console.WriteLine(nom + " est mort ");
                 return true;
             }
         }

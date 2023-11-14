@@ -25,10 +25,7 @@ namespace RPGSimpleCsFR
         // Prend un autre objet Character en argument et revois un booléen disant si l'attaque a réussi ou échouer
         public abstract bool Attack();
 
-        // Defend:
-        // Sera appelé dans la méthode attack, retourne le score de défense de la cible
-        public abstract int Defend(Character c);
-
+      
         // Damages:
         // Sera appelé apres l'attaque si elle a réussi et infligera des dégats à la cible
         public abstract void Damage(Character c);

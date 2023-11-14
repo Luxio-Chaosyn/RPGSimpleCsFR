@@ -23,7 +23,7 @@ namespace RPGSimpleCsFR
 
         public override void PickUp(Character c) // Ajoute les points de défense au perso qui aura récupérer l'armure
         {
-            //c.Def += defensePoint
+            c.def += defensePoint;
         }
     }
 }

@@ -13,6 +13,8 @@ namespace RPGSimpleCsFR
         //trouve une position valide (un espace) et place le joueur dessus (set px et py a l'endroit)
         public void GetStartPosition()
         {
+
+            bool ok = false;
             do
             {
                 for (int i = 0; i < 50; i++)
@@ -23,11 +25,12 @@ namespace RPGSimpleCsFR
                         {
                             px = i;
                             py = j;
+                            ok= true;
                             break;
                         }
                     }
                 }
-            } while (true);
+            } while (!ok);
         }
         //check toute les positions (en haut, en bas, a droite et a gauche) et check si on peut se deplacer dessus (c'est a dire, si c'est un mur ou pas)
         public bool[] GetMoveOptions()

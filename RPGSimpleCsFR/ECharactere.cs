@@ -13,15 +13,15 @@ namespace RPGSimpleCsFR
 
         const int ATK = 20;
         const int DEF = 100;
-        public int lvl { get; set;}
+        public int lvl { get; set; }
         
-        
+
 
         public ECharactere(string name)
         {
-            atk = ATK;
-            def = DEF;
-            nom= name;
+                atk = ATK;
+                def = DEF;
+                nom = name;
         }
         // Attack:
         // Prend un autre objet Character en argument et revois un booléen disant si l'attaque a réussi ou échouer
@@ -73,6 +73,12 @@ namespace RPGSimpleCsFR
                 return true;
             }
             return false;
+        }
+
+        public void MonsterRdmStat()
+        {
+            atk = Rng.Roll(1, 15);
+            def = Rng.Roll(80, 130);
         }
 
     }

@@ -8,10 +8,12 @@ namespace RPGSimpleCsFR
 {
     internal class Labyrinth
     {
+        char[,] maze;
+
         // créer le labyrinthe, commence par faire une grille pleine de # puis au harzard enlève 3/5 en les remplaçant par des espace
         public void Generate(int x, int y)
         {
-            char[,] maze = new char[x, y];
+            maze= new char[x, y];
             
             for (int i = 0; i < maze.GetLength(0); i++)
             {
@@ -22,6 +24,8 @@ namespace RPGSimpleCsFR
 
 
             }
+            
+
 
 
         }
@@ -37,12 +41,12 @@ namespace RPGSimpleCsFR
         public  void Furbish(int nb)
         {
 
-
+            
         }
 
         //renvoie la nature de la case demandé
-        public void observe(int x, int y) { 
-        
+        public char observe(int x, int y) {
+            return maze[x, y];        
         }
 
     }

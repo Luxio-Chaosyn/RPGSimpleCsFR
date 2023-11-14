@@ -20,7 +20,7 @@ namespace RPGSimpleCsFR
 
         public override void PickUp(Character c)
         {
-            //c.Atk += damagePoint
+            c.atk += damagePoint;
         }
     }
 }

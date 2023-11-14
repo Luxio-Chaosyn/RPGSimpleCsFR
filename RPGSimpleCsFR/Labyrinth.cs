@@ -20,7 +20,7 @@ namespace RPGSimpleCsFR
             {
                 for (int j = 0; j < maze.GetLength(1); j++)
                 {
-                    maze[x, y] = '#';
+                    maze[i, j] = '#';
                 }
 
 

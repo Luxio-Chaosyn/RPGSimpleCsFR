@@ -24,8 +24,26 @@ namespace RPGSimpleCsFR
 
 
             }
-            
 
+            int nbvide =0;
+
+           do
+            {
+              int rand1 = Rng.Roll(0,x);
+              int rand2 = Rng.Roll(0,y)
+
+
+              if (maze[rand1,rand2])='#')
+                {
+                    maze[rand1, rand2] = ' ';
+                    nbvide++;
+
+                } 
+
+            }
+           while(nbvide<(x*y*3/5))
+            
+             
 
 
         }
@@ -33,15 +51,48 @@ namespace RPGSimpleCsFR
         // au hazard rajoute nb 'M' dans le labyrinthe
         public void Populate(int nb)
         {
+            do
+            {
+                
+                int rand1 = Rng.Roll(0, x);
+                int rand2 = Rng.Roll(0, y)
 
+
+              if (maze[rand1, rand2])= ' ')
+                {
+                    maze[rand1, rand2] = 'M';
+                    nb--;
+
+                }
+
+            }
+            while ( nb>0)
 
         }
+
 
         // au hazard rajoute nb 'T' dans le labyrinthe
         public  void Furbish(int nb)
         {
+            do
+            {
 
-            
+                int rand1 = Rng.Roll(0, x);
+                int rand2 = Rng.Roll(0, y)
+
+
+              if (maze[rand1, rand2])= ' ')
+                {
+                    maze[rand1, rand2] = 'T';
+                    nb--;
+
+                }
+
+            }
+            while (nb > 0)
+
+
+
         }
 
         //renvoie la nature de la case demandé

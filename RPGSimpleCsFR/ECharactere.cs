@@ -27,7 +27,7 @@ namespace RPGSimpleCsFR
         // Prend un autre objet Character en argument et revois un booléen disant si l'attaque a réussi ou échouer
         public override bool Attack()
         {
-            int luck = Rng.Roll(1, 2);
+            int luck = Rng.Roll(0, 2) + 1;
             
                 if (luck == 1)
             {
@@ -47,7 +47,7 @@ namespace RPGSimpleCsFR
             {
                 Console.WriteLine("Attaque réussi");
                 c.def = c.def - atk;
-                Console.WriteLine("Vous avez infligé " + atk + " degats ");
+                Console.WriteLine(nom + " inflige " + atk + " degats ");
                 return;
             }
 
@@ -77,8 +77,8 @@ namespace RPGSimpleCsFR
 
         public void MonsterRdmStat()
         {
-            atk = Rng.Roll(1, 15);
-            def = Rng.Roll(80, 130);
+            atk = Rng.Roll(0, 15) + 1;
+            def = Rng.Roll(79, 130) + 1;
         }
 
     }

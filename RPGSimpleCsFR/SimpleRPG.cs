@@ -41,19 +41,19 @@ namespace RPGSimpleCsFR
         private bool[] GetMoveOptions()
         {
             bool[] MoveOptions = { false, false, false, false };
-            if (px > 0 && maze.observe(px - 1, py) == ' ')
+            if (px > 0 && maze.observe(px - 1, py) != '#')
             {
                 MoveOptions[3] = true;
             }
-            if (px < 50 && maze.observe(px + 1, py) == ' ')
+            if (px < 50 && maze.observe(px + 1, py) != '#')
             {
                 MoveOptions[2] = true;
             }
-            if (py > 0 && maze.observe(px, py - 1) == ' ')
+            if (py > 0 && maze.observe(px, py - 1) != '#')
             {
                 MoveOptions[1] = true;
             }
-            if (py < 50 && maze.observe(px, py + 1) == ' ')
+            if (py < 50 && maze.observe(px, py + 1) != '#')
             {
                 MoveOptions[0] = true;
             }
@@ -86,7 +86,7 @@ namespace RPGSimpleCsFR
                 if (maze.observe(x, y) == 'T')
                 {
                     Console.WriteLine("Super, vous venez de tomber sur un trésor ! ");
-                    switch (Rng.Roll(1, 2))
+                    switch (Rng.Roll(0, 2) + 1)
                     {
                         case 1:
                             {

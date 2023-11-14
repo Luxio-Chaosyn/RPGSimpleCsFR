@@ -18,8 +18,8 @@ namespace RPGSimpleCsFR
 
         public ECharactere(string name)
         {
-            atk = 20;
-            def = 100;
+            atk = ATK;
+            def = DEF;
             nom= name;
         }
         // Attack:

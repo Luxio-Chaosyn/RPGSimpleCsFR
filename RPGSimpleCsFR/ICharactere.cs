@@ -26,7 +26,6 @@ namespace RPGSimpleCsFR
                 if (def <= 0)
                 {
                     _isAlive = false;
-                    CharactereDie();
                 }
             }
         }
@@ -71,12 +70,6 @@ namespace RPGSimpleCsFR
         public override void LevelUp()
         {
             
-        }
-
-        public void CharactereDie()
-        {
-            
-
         }
     }
 }

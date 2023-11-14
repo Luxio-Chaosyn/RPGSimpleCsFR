@@ -104,5 +104,10 @@ namespace RPGSimpleCsFR
             return maze[x, y];        
         }
 
+        public void setPlace(int x, int y,char newState)
+        {
+            maze[x, y]=newState;
+        }
+
     }
 }

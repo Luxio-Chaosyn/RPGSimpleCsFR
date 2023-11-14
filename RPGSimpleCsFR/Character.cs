@@ -11,8 +11,8 @@ namespace RPGSimpleCsFR
         // Propriétés
         
 
-        public int atk;
-        public int def;
+        public int atk {  get; set; }
+        public int def {  get; set; }
         public string nom;
 
         //  Méthodes

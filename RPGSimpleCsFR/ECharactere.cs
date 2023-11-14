@@ -10,6 +10,7 @@ namespace RPGSimpleCsFR
     public class ECharactere : Character
     {
 
+
         const int ATK = 20;
         const int DEF = 100;
         public int lvl { get; set;}
